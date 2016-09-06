@@ -9,6 +9,8 @@
 #import "ViewController.h"
 
 @interface ViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *Result;
+@property (weak, nonatomic) IBOutlet UITextField *inputWordToTranslate;
 
 @end
 
@@ -19,9 +21,28 @@
     // Do any additional setup after loading the view, typically from a nib.
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+
+- (IBAction)Oversatt:(id)sender {
+    
+    NSString *result = @"";
+    
+    for(int i = 0; i < self.inputWordToTranslate.text.length; i++) {
+        char c = [self.inputWordToTranslate.text characterAtIndex:i];
+        
+        if(c == 'a' ||
+           c == 'o' ||
+           c == 'u' ||
+           c == 'i' ||
+           c == 'e' ||
+           c == 'y' ||
+           c == ' ') {
+            result = [NSString stringWithFormat:@"%@%c", result, c];
+        }
+        else {
+            result = [NSString stringWithFormat:@"%@%co%c", result, c, c];
+        }
+    }
+    self.Result.text = result;
 }
 
 @end
