@@ -14,7 +14,7 @@ This README would normally document whatever steps are necessary to get your app
 * Configuration
 * Dependencies iOS
 
-Cline and run in Xcode
+Clone and run in Xcode
 
 ### Who do I talk to? ###
 
